@@ -42,7 +42,7 @@ T           = [0.1,0.5,1];
 T_length    = length(T);
 dt_obs      = 1e-3;
 % for unstable A, Gramian computation directly via integration
-fun         = @(t) expm(A'*t)*(C'*C)*expm(A*t);
+fun         = @(t) expm(A'*t)*(F'*F)*expm(A*t);
 % making dt_obs bigger makes Spantini eigvals decay faster
 n           = round(T/dt_obs);
 % relative noise scaling
