@@ -7,7 +7,7 @@ This MATLAB repository contains code for the numerical results of the following 
 ## Summary
 The work in [1] generalizes the concept of balancing for Bayesian inference from [2] to arbitrary prior covariances and unstable system matrices. For this purpose, the concept of time-limited balanced truncation is used. Time-limited Gramians are efficiently computed by rational Krylov methods from [4]. Numerical examples compare the performance with the original approach from [2] and the optimal approach from [3]. 
 This work uses the code from [2] 
-(to be found at [https://github.com/elizqian/balancing-bayesian-inference](https://github.com/elizqian/balancing-bayesian-inference)) and [4].
+(to be found at [https://github.com/elizqian/balancing-bayesian-inference](https://github.com/elizqian/balancing-bayesian-inference)) and [4] (to be found at [https://zenodo.org/record/7366026](https://zenodo.org/record/7366026)).
 
 ## Examples
 To run this code, you need the MATLAB Control System Toolbox.
