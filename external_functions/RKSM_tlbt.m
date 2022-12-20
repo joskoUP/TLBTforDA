@@ -1,5 +1,6 @@
 % function RKSM_TLBT.m
 % Many thanks to Patrick Kürschner for providing this Code.
+% The full repository for "Rational Krylov subspace methods for time-limited Gramians" can be found at https://zenodo.org/record/7366026.
 
 function [funAb,xi,err,V,Z,Y,beta] = RKSM_tlbt(A,E,B,sfreq, tol,maxit,sh,exact,npts,T,ssolve,modG,opts)
 % Rational Krylov method for computing low-rank solution factors of the
