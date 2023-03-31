@@ -23,7 +23,7 @@ C           = ones(1,d)/d;
 F           = C./sig_obs;
 d_out       = size(C,1);
 
-%% set given prior = Reach abilityGramian
+%% set given prior = Reachability Gramian
 L_pr        = eye(d);
 Gamma_pr    = L_pr*L_pr';
 M           = A*Gamma_pr+Gamma_pr*A';
@@ -57,7 +57,7 @@ for t = 1:T_length
 
     %% compute time-limited Obs Gramian
     Q_TL                = integral(fun,0,T(t),'ArrayValued',true);
-    % compute a square root factorization of Q_inf
+    % compute a square root factorization of Q_TL
     % floating point computation errors induce complex zeros
     [V,D]               = eig(Q_TL);
     V                   = real(V);
@@ -117,7 +117,7 @@ for t = 1:T_length
     A_BTH       = SrH'*A*TrH;
     C_BTH       = C*TrH;
 
-    %% balancing with Q_infty time-limited
+    %% time-limited balancing with Q_TL
     [V,S,W]     = svd(L_Q_TL'*L_pr); 
     S           = S(1:rmax,1:rmax);
     delQ_TL     = diag(S);
@@ -150,8 +150,8 @@ for t = 1:T_length
         temp_sp_2       = R_pos_true\(temp_sp_2-mupos_true_all);
         mu_errs(rr,2)   = mean(sqrt(sum(temp_sp_2.^2)));
     
-    %% Q_infty time-limited posterior quantities
-        % Balancing with Q_infty - generate G_BT,H_BT
+    %% Q_TL time-limited posterior quantities
+        % Balancing with Q_TL - generate G_BT,H_BT
         G_BTQ_TL        = zeros(n(t)*d_out,r);
         iter            = expm(A_BTQ_TL(1:r,1:r)*dt_obs);
         temp            = C_BTQ_TL(:,1:r);
@@ -163,7 +163,7 @@ for t = 1:T_length
         G_BTQo_TL       = G_BTQ_TL./sig_obs_long;
         H_BTQ_TL        = G_BTQo_TL'*G_BTQo_TL;
 
-        % Balancing with Q_infty - compute posterior covariance and mean
+        % Balancing with Q_TL - compute posterior covariance and mean
         R_posinv        = qr([G_BTQo_TL; L_prinv],0);
         R_posinv        = triu(R_posinv(1:d,:)); % Pull out upper triangular factor
         R_pos_BTQ_TL    = inv(R_posinv);
