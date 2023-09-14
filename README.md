@@ -2,7 +2,7 @@
 
 This MATLAB repository contains code for the numerical results of the following paper:
 
-1. König, J., Freitag, M. "Time-limited Balanced Truncation for Data Assimilation Problems" [arXiv](https://arxiv.org/abs/2212.07719) (submitted, under review).
+1. König, J., Freitag, M. "Time-limited Balanced Truncation for Data Assimilation Problems" [arXiv](https://arxiv.org/abs/2212.07719) (accepted for Journal of Scientific Computing).
 
 ## Summary
 The work in [1] generalizes the concept of balancing for Bayesian inference from [2] to arbitrary prior covariances and unstable system matrices. For this purpose, the concept of time-limited balanced truncation is used. Time-limited Gramians are efficiently computed by rational Krylov methods from [4]. Numerical examples compare the performance with the original approach from [2] and the optimal approach from [3]. 
